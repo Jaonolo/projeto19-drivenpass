@@ -2,7 +2,6 @@ import express, { json } from "express";
 import cors from "cors";
 import dotenv from "dotenv"
 import "express-async-errors";
-import client from "./database.js";
 
 import Routers from "./routers/index.js";
 import { ErrorHandler } from "./middlewares/errorHandler.js";
