@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.3.0",
+    "@prisma/client": "^4.0.0",
     "cors": "^2.8.5",
     "cryptr": "^6.0.3",
     "dayjs": "^1.11.3",
