@@ -1,7 +1,9 @@
 import client from "../database.js";
 import { User } from "@prisma/client";
 
-export const create = async (userData: Omit<User, "id">) => {
+export type CreateUserData = Omit<User, "id" | "createdAt">
+
+export const create = async (userData: CreateUserData) => {
 
     const query = await client.user.create({
         data: userData

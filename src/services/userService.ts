@@ -1,10 +1,11 @@
-import { User } from "@prisma/client";
+import { CreateUserData } from "../repositories/userRepository.js"
+import jwt, { Secret } from "jsonwebtoken"
 
 import bcrypt from "bcrypt"
 
 import * as userRepository from "../repositories/userRepository.js"
 
-export const create = async ({email, password}: Omit<User, "id">) => {
+export const create = async ({email, password}: CreateUserData) => {
 
     if(password.length < 10)
         throw "Erro!"
@@ -18,7 +19,7 @@ export const create = async ({email, password}: Omit<User, "id">) => {
     return await userRepository.create({email, password: encryptedPassword})
 }
 
-export const login = async ({email, password}: Omit<User, "id">) => {
+export const login = async ({email, password}: CreateUserData) => {
 
     const user = await userRepository.get({email})
     if(!user)
@@ -28,7 +29,8 @@ export const login = async ({email, password}: Omit<User, "id">) => {
     if(!isPasswordValid)
         throw "Erro!"
 
-    const token = 1
+    const secret: Secret = process.env.JWT_SECRET || 'secret'
+    const token = jwt.sign({email}, secret)
 
-    return `${token}`
+    return token
 }
