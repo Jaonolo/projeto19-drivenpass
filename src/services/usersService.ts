@@ -1,9 +1,9 @@
-import { CreateUserData } from "../repositories/userRepository.js"
+import { CreateUserData } from "../repositories/usersRepository.js"
 import jwt, { Secret } from "jsonwebtoken"
 
 import bcrypt from "bcrypt"
 
-import * as userRepository from "../repositories/userRepository.js"
+import * as userRepository from "../repositories/usersRepository.js"
 
 export const create = async ({email, password}: CreateUserData) => {
 

@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 
-import * as credentialService from "../services/credentialService.js"
-import { CreateCredentialData, CredentialId } from "../repositories/credentialRepository.js"
+import * as credentialService from "../services/credentialsService.js"
+import { CreateCredentialData, CredentialId } from "../repositories/credentialsRepository.js"
 
 export const create = async (req: Request, res: Response) => {
 
@@ -21,7 +21,7 @@ export const get = async (req: Request<CredentialId>, res: Response) => {
     
     const { userId } = res.locals
     
-    const credential = await credentialService.get(id, userId)
+    const credential = await credentialService.get(id*1, userId)
 
     return res.send(credential)
 }

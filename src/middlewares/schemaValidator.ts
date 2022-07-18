@@ -4,7 +4,7 @@ export const schemaValidator = (schema: { validate: Function }) => (req: Request
 
     const {error} = schema.validate(req.body, {abortEarly: false});
     
-    if (error) throw "Erro!";
+    if (error) throw error;
     
     next();
 }

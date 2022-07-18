@@ -1,11 +1,10 @@
 import { Request, Response, NextFunction, json } from "express";
 import jwt, { Secret, JwtPayload } from "jsonwebtoken"
 
-import * as tokenRepository from "../repositories/tokenRepository.js"
-import * as userRepository from "../repositories/userRepository.js"
+import * as tokenRepository from "../repositories/tokensRepository.js"
+import * as userRepository from "../repositories/usersRepository.js"
 
-export const authValidator = (schema: { validate: Function }) => async (req: Request, res: Response, next: NextFunction) => { 
-
+export const authValidator = async (req: Request<any>, res: Response, next: NextFunction) => { 
     const token = req.headers?.authorization
     if(!token)
         throw "Erro!"

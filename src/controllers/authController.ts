@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { User } from "@prisma/client"
 
-import * as userService from "../services/userService.js"
+import * as userService from "../services/usersService.js"
 
 export const register = async (req: Request, res: Response) => {
 

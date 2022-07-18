@@ -1,7 +1,7 @@
-import { CreateCredentialData } from "../repositories/credentialRepository"
+import { CreateCredentialData } from "../repositories/credentialsRepository.js"
 import cryptr from "../utils/cryptUtils.js"
 
-import * as credentialRepository from "../repositories/credentialRepository.js"
+import * as credentialRepository from "../repositories/credentialsRepository.js"
 
 export const create = async (credentialData: CreateCredentialData) => {
 

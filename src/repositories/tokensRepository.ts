@@ -1,4 +1,4 @@
-import client from "../database"
+import client from "../database.js"
 import { Token } from "@prisma/client"
 
 export const isBlacklisted = async ({token}: Pick<Token, "token">) => {
@@ -8,7 +8,6 @@ export const isBlacklisted = async ({token}: Pick<Token, "token">) => {
             token
         }
     })
-
-    console.log(query)
+    
     return query
 }
